@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Check-in</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- Splash Screen -->
+    <section id="screen-splash" class="screen active">
+      <div class="center-content">
+        <h1 class="splash-text fade-in-up">Shall We Begin?</h1>
+        <button id="btn-begin" class="btn-primary fade-in-delayed">Yes</button>
+      </div>
+    </section>
+
+    <!-- Auth Screen -->
+    <section id="screen-auth" class="screen">
+      <div class="card glass">
+        <h2>Welcome</h2>
+        <p class="subtitle">Please sign in to continue.</p>
+        <form id="auth-form">
+          <div class="input-group">
+            <input type="email" id="auth-email" placeholder="Unique User ID (Email)" required>
+          </div>
+          <div class="input-group">
+            <input type="password" id="auth-password" placeholder="Password" required>
+          </div>
+          <button type="submit" id="btn-auth" class="btn-primary">Sign In / Sign Up</button>
+        </form>
+        <p id="auth-message" class="error-message"></p>
+      </div>
+    </section>
+
+    <!-- Daily Check-in Screen -->
+    <section id="screen-checkin" class="screen">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <div id="question-container" class="center-content">
+        <!-- Content injected by JS -->
+      </div>
+    </section>
+
+    <!-- Analysis Dashboard Screen -->
+    <section id="screen-analysis" class="screen">
+      <div class="card glass dashboard">
+        <h2>Your Results</h2>
+        <div class="score-circle" id="result-circle">
+          <span id="result-percentage">--%</span>
+        </div>
+        <h3 id="result-label" class="result-label">--</h3>
+        
+        <div class="analysis-section">
+          <h4>Strengths</h4>
+          <ul id="list-strengths" class="pill-list"></ul>
+        </div>
+        
+        <div class="analysis-section">
+          <h4>Areas for Care</h4>
+          <ul id="list-areas" class="pill-list"></ul>
+        </div>
+        
+        <button id="btn-restart" class="btn-secondary mt-4">Done</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
